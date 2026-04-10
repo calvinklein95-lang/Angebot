@@ -561,4 +561,19 @@ function resetAll(){
   S={step:1,kat:null,paket:null,extras:{},qty:{},ef:0};
   ['k-name','k-nn','k-email','k-tel','k-datum','k-ort','k-notiz'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   document.querySelectorAll('.kat-card').forEach(c=>c.classList.remove('sel'));
-  d
+  document.getElementById('send-status') && (document.getElementById('sendst').className='send-st');
+  upd();
+}
+
+// Init
+loadFromURL();
+upd();
+
+// Live update on typing
+['k-name','k-email','k-datum','k-ort','k-notiz'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) el.addEventListener('input',upd);
+});
+</script>
+</body>
+</html>
